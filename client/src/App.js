@@ -8,6 +8,9 @@ import pc5 from './icons8-apple-96.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactDOM from 'react-dom'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import RubberSlider from '@shwilliam/react-rubber-slider'
+import "@shwilliam/react-rubber-slider/dist/styles.css";
+
 
 
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
@@ -21,11 +24,25 @@ import {Modal} from "./Modal";
 
 
 
-
+const getPotravina = async (id) => {
+    const res = await fetch(`http://localhost:3030/` + id, {
+        headers: {
+            "Accept": "application/json",
+        },
+        method: "GET",
+    });
+    let data = res.json();
+    return await data;
+}
 
 function App() {
 
 useEffect(()=> {
+
+
+
+    console.log(getPotravina(2))
+
     let progressBar = document.querySelector(".circular-progress");
 
     let valueContainer = document.querySelector(".value-container");
@@ -37,7 +54,7 @@ useEffect(()=> {
 
     let progress = setInterval(() => {
         progressValue++;
-        console.log(valueContainer)
+        // console.log(valueContainer)
         valueContainer.innerHTML = `${progressValue}` + "%";
         progressBar.style.background = `conic-gradient(
       #0054fe ${progressValue * 3.6}deg,
@@ -164,23 +181,36 @@ useEffect(()=> {
             </div>
 
             <div className="text">Tuky</div>
-
-
         </div>
+
+
       <div className="hledani">
 
       </div>
       <div className="kcal">
           <div className="flip-card-inner">
               <div className="flip-card-front">
-          <p className="textkcal">{total}</p>
-          <p className="textkcal1">průměr kcal</p>
-          <img className="pic1" src={pc1}/>
+                <div className="textFrontCard">
+                    <p className="textkcal">{total}</p>
+                    <p className="textkcal1">průměr kcal</p>
+                </div>
+
 
       <div className="kcal1">
+          <img className="pic1" src={pc1}/>
+
       </div>
               </div>
               <div className="flip-card-back">
+                  <h1 className="prd">Kcal</h1>
+                  <RubberSlider className="hovno"
+                                value={total}
+                      onChange={setTotal}
+                      width ={300}
+                      min={1}
+                      max={10000}
+                  />
+                  <p className="hodnota">{total}</p>
 
               </div>
 
@@ -189,15 +219,24 @@ useEffect(()=> {
       <div className="bilk">
           <div className="flip-card-inner">
               <div className="flip-card-front">
-          <p className="textbilk">{bilk}</p>
-          <p className="textkcal1">průměr bílkovin</p>
-          <img className="pic2" src={pc2}/>
+                  <div className="textFrontCard">
+                      <p className="textbilk">{bilk}</p>
+                      <p className="textkcal1">průměr bílkovin</p>
+                  </div>
+
           <div className="bilk1">
+              <img className="pic1" src={pc2}/>
           </div>
           </div>
               <div className="flip-card-back">
-                  <h3>Wireless Headphone</h3>
-                  <h1>R$ 249,90</h1>
+                  <RubberSlider className="hovno"
+                                value={total}
+                                onChange={setTotal}
+                                width ={300}
+                                min={1}
+                                max={10000}
+                  />
+                  <p className="hodnota">{total}</p>
               </div>
 
           </div>
@@ -205,14 +244,18 @@ useEffect(()=> {
       <div className="sach">
           <div className="flip-card-inner">
               <div className="flip-card-front">
-          <p className="textsach">{sach}</p>
-          <p className="textkcal1">průměr sacharidů</p>
-          <img className="pic3" src={pc3}/>
-          <div className="sach1">  </div>
+                  <div className="textFrontCard">
+                      <p className="textsach">{sach}</p>
+                      <p className="textkcal1">průměr sacharidů</p>
+                  </div>
+
+          <div className="sach1">
+              <img className="pic1" src={pc3}/>
+          </div>
               </div>
               <div className="flip-card-back">
-                  <h3>Wireless Headphone</h3>
-                  <h1>R$ 249,90</h1>
+
+
               </div>
 
           </div>
@@ -221,16 +264,18 @@ useEffect(()=> {
       <div className="tuk">
           <div className="flip-card-inner">
               <div className="flip-card-front">
-          <p className="texttuky">{tuk}</p>
-          <p className="textkcal1">průměr tuku</p>
-          <img className="pic4" src={pc4}/>
-          <div className="tuk1">
+                  <div className="textFrontCard">
+                      <p className="texttuky">{tuk}</p>
+                      <p className="textkcal1">průměr tuku</p>
+                  </div>
 
+          <div className="tuk1">
+              <img className="pic1" src={pc4}/>
           </div>
               </div>
               <div className="flip-card-back">
-                  <h3>Wireless Headphone</h3>
-                  <h1>R$ 249,90</h1>
+
+
               </div>
           </div>
       </div>
@@ -238,10 +283,10 @@ useEffect(()=> {
     <div className="nabidka">
 
 
-      <div className="icons8-app">
+
           <img className="pc5" src={pc5}/>
-        </div>
-      <div className="kcalkalkul">Kcalkalkulačka</div>
+
+      <p className="kcalkalkul">Kcalkalkulačka</p>
 
 
 
