@@ -8,8 +8,7 @@ import pc5 from './icons8-apple-96.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import ReactDOM from 'react-dom'
 import {faCoffee} from '@fortawesome/free-solid-svg-icons'
-import RubberSlider from '@shwilliam/react-rubber-slider'
-import "@shwilliam/react-rubber-slider/dist/styles.css";
+
 
 
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
@@ -216,15 +215,8 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                        <h1 className="prd">Kcal</h1>
-                        <RubberSlider className="hovno"
-                                      value={total}
-                                      onChange={setTotal}
-                                      width={300}
-                                      min={1}
-                                      max={10000}
-                        />
-                        <p className="hodnota">{total}</p>
+                        <input  className="input5" type="number" placeholder={setTotal} value={total}
+                                onChange={e => setTotal(+e.target.value)}/>
 
                     </div>
 
@@ -243,14 +235,10 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                        <RubberSlider className="hovno"
-                                      value={total}
-                                      onChange={setTotal}
-                                      width={300}
-                                      min={1}
-                                      max={10000}
-                        />
-                        <p className="hodnota">{total}</p>
+                        <input  className="input5" type="number" placeholder={bilkTotal} value={bilk}
+                                onChange={e => bilkTotal(+e.target.value)}/>
+
+
                     </div>
 
                 </div>
@@ -268,7 +256,8 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-
+                        <input  className="input5" type="number" placeholder={sachTotal} value={sach}
+                                onChange={e => sachTotal(+e.target.value)}/>
 
                     </div>
 
@@ -288,7 +277,8 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-
+                <input  className="input5" type="number" placeholder={tukTotal} value={tuk}
+                               onChange={e => tukTotal(+e.target.value)}/>
 
                     </div>
                 </div>
