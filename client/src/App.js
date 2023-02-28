@@ -10,7 +10,6 @@ import ReactDOM from 'react-dom'
 import {faCoffee} from '@fortawesome/free-solid-svg-icons'
 
 
-
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
 import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
 import {faInstagram} from '@fortawesome/free-brands-svg-icons'
@@ -32,7 +31,9 @@ import {Modal} from "./Modal";
 
 function App() {
 
+
     const [potraviny, setPotraviny] = useState([])
+    const [filterName, setFilterName] = useState(0);
     const [loaded, setLoaded] = useState(false);
 
     const getPotravina = async (id) => {
@@ -155,6 +156,7 @@ function App() {
             </>
         );
     }
+
     return (
 
 
@@ -215,8 +217,14 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                        <input  className="input5" type="number" placeholder={setTotal} value={total}
-                                onChange={e => setTotal(+e.target.value)}/>
+
+                        <img className="pic10" src={pc1}/>
+                        <p className="textvaha">kcal</p>
+
+                        <p className="text10">zde si mužeš nastavit vlastni hodnotu kcal</p>
+
+                        <input className="input5" type="number" placeholder={setTotal} value={total}
+                               onChange={e => setTotal(+e.target.value)}/>
 
                     </div>
 
@@ -235,8 +243,9 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                        <input  className="input5" type="number" placeholder={bilkTotal} value={bilk}
-                                onChange={e => bilkTotal(+e.target.value)}/>
+                        <p className="text6">průměr bilkovin</p>
+                        <input className="input5" type="number" placeholder={bilkTotal} value={bilk}
+                               onChange={e => bilkTotal(+e.target.value)}/>
 
 
                     </div>
@@ -256,8 +265,9 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                        <input  className="input5" type="number" placeholder={sachTotal} value={sach}
-                                onChange={e => sachTotal(+e.target.value)}/>
+                        <p className="text6">průměr sacharidů</p>
+                        <input className="input5" type="number" placeholder={sachTotal} value={sach}
+                               onChange={e => sachTotal(+e.target.value)}/>
 
                     </div>
 
@@ -277,7 +287,8 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                <input  className="input5" type="number" placeholder={tukTotal} value={tuk}
+                        <p className="text6">průměr tuků</p>
+                        <input className="input5" type="number" placeholder={tukTotal} value={tuk}
                                onChange={e => tukTotal(+e.target.value)}/>
 
                     </div>
@@ -301,6 +312,33 @@ function App() {
                        onChange={e => setNumber2(+e.target.value)}/><p className="p2">váha/kg </p>
                 <input className="input3" type="number" placeholder="0" value={number3}
                        onChange={e => setNumber3(+e.target.value)}/><p className="p3">věk/roky</p>
+
+
+            </div>
+
+            <div className="tabulka">
+                <input type={"text"} onChange={(e) => setFilterName(e.target.value)} className="hledacipanel"/>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nazev</th>
+                        <th>Kcal</th>
+                        <th>Sacharidy</th>
+                        <th>Bilkoviny</th>
+                        <th>Tuky</th>
+                    </tr>
+                    {/*{setChangedPotraviny(potraviny.filter(potravina => potravina.Name.includes(document.querySelector(".hledacipanel").value.toString())))}*/}
+                    {potraviny.result.filter(potravina => potravina.Nazev.includes(filterName)).map((potravina) => (
+                        <tr>
+                            <td>{potravina.ID}</td>
+                            <td>{potravina.Nazev}</td>
+                            <td>{potravina.Kcal}</td>
+                            <td>{potravina.Sacharidy}</td>
+                            <td>{potravina.Bilkoviny}</td>
+                            <td>{potravina.Tuky}</td>
+                        </tr>
+                    ))}
+                </table>
 
 
             </div>
@@ -336,14 +374,14 @@ function App() {
                 </div>
             </div>
             <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nazev</th>
-                        <th>Kcal</th>
-                        <th>Sacharidy</th>
-                        <th>Bilkoviny</th>
-                        <th>Tuky</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Nazev</th>
+                    <th>Kcal</th>
+                    <th>Sacharidy</th>
+                    <th>Bilkoviny</th>
+                    <th>Tuky</th>
+                </tr>
                 {potraviny.result.map((potravina) => (
                     <tr>
                         <td>{potravina.ID}</td>

@@ -627,5 +627,56 @@ input {
   font-size: 100%;
 }
 .input5{
-  width: 30%;
+  width: 33%;
+left: 20%;
+  font-size: 220%;
+  height: 30%;
+  top: 25%;
+  position: absolute;
+
+
+}
+
+.pic10{
+  position: fixed;
+  left: 87%;
+  top: 10%;
+  height: 20%;
+
+}
+
+.text10{
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  font-size: 70%;
+  color: #74798c;
+}
+.textvaha{
+top: 7%;
+  left: 60%;
+  position: absolute;
+  font-size: 200%;
+
+
+}
+.tabulka {
+  width: 83%;
+  height: 26%;
+  position: absolute;
+   left: 16%;
+  top:73%;
+  border-radius: 5px;
+  background: #ffffff;
+  background-blend-mode: normal;
+  box-shadow: 0px 2px 4px
+rgba(0,0,0,0.02);
+
+
+
+
+}
+
+.hledacipanel{
+  width: 40%;
 }
