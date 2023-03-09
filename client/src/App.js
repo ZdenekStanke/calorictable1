@@ -9,7 +9,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import ReactDOM from 'react-dom'
 import {faCoffee} from '@fortawesome/free-solid-svg-icons'
 
-
+import {faSistrix} from '@fortawesome/free-brands-svg-icons'
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
 import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
 import {faInstagram} from '@fortawesome/free-brands-svg-icons'
@@ -35,6 +35,7 @@ function App() {
     const [potraviny, setPotraviny] = useState([])
     const [filterName, setFilterName] = useState(0);
     const [loaded, setLoaded] = useState(false);
+    const [ulozenePotraviny, setUlozenePotraviny] = useState([])
 
     const getPotravina = async (id) => {
         const res = await fetch(`http://localhost:3030/` + id, {
@@ -53,6 +54,7 @@ function App() {
         if (!loaded) {
             getPotravina("")
         }
+
         let progressBar = document.querySelector(".circular-progress");
 
         let valueContainer = document.querySelector(".value-container");
@@ -244,8 +246,11 @@ function App() {
                     </div>
                     <div className="flip-card-back">
                         <p className="text6">průměr bilkovin</p>
+                        <img className="pic10" src={pc2}/>
                         <input className="input5" type="number" placeholder={bilkTotal} value={bilk}
                                onChange={e => bilkTotal(+e.target.value)}/>
+
+                        <p className="textvaha">g</p>
 
 
                     </div>
@@ -265,6 +270,7 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
+                        <img className="pic10" src={pc3}/>
                         <p className="text6">průměr sacharidů</p>
                         <input className="input5" type="number" placeholder={sachTotal} value={sach}
                                onChange={e => sachTotal(+e.target.value)}/>
@@ -287,6 +293,7 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
+                        <img className="pic10" src={pc4}/>
                         <p className="text6">průměr tuků</p>
                         <input className="input5" type="number" placeholder={tukTotal} value={tuk}
                                onChange={e => tukTotal(+e.target.value)}/>
@@ -317,28 +324,57 @@ function App() {
             </div>
 
             <div className="tabulka">
-                <input type={"text"} onChange={(e) => setFilterName(e.target.value)} className="hledacipanel"/>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nazev</th>
-                        <th>Kcal</th>
-                        <th>Sacharidy</th>
-                        <th>Bilkoviny</th>
-                        <th>Tuky</th>
-                    </tr>
-                    {/*{setChangedPotraviny(potraviny.filter(potravina => potravina.Name.includes(document.querySelector(".hledacipanel").value.toString())))}*/}
-                    {potraviny.result.filter(potravina => potravina.Nazev.includes(filterName)).map((potravina) => (
+                <form className="mojetlacitko">
+                    <input type={"text"} onChange={(e) => setFilterName(e.target.value)} className="hledacipanel"
+                           placeholder="Hledat potraviny"/>
+                    <div>
+                        <table>
+                            {/*{setChangedPotraviny(potraviny.filter(potravina => potravina.Name.includes(document.querySelector(".hledacipanel").value.toString())))}*/}
+                            {potraviny.result.filter(potravina => potravina.Nazev.includes(filterName)).map((potravina) => (
+                                <button onClick={() => {
+                                    ulozenePotraviny.push({
+                                        Nazev: potravina.Nazev,
+                                        Kcal: potravina.Kcal,
+                                        Sacharidy: potravina.Sacharidy,
+                                        Bilkoviny: potravina.Bilkoviny,
+                                        Tuky: potravina.Tuky});
+                                }}>
+                                    <td>{potravina.Nazev}</td>
+                                    <td>{potravina.Kcal}kcal</td>
+                                    <td>Sach. {potravina.Sacharidy}g</td>
+                                    <td>Blik. {potravina.Bilkoviny}g</td>
+                                    <td>Tuky {potravina.Tuky}g</td>
+                                </button>
+                            ))}
+                        </table>
+                    </div>
+                </form>
+                <div className="vybranePotraviny">
+                    <button onClick={() => {
+                        ulozenePotraviny.push({
+                            Nazev: "karel",
+                            Kcal: 19
+                        });
+                    }}>Add</button>
+                    <table>
                         <tr>
-                            <td>{potravina.ID}</td>
-                            <td>{potravina.Nazev}</td>
-                            <td>{potravina.Kcal}</td>
-                            <td>{potravina.Sacharidy}</td>
-                            <td>{potravina.Bilkoviny}</td>
-                            <td>{potravina.Tuky}</td>
+                            <th>Nazev</th>
+                            <th>Kcal</th>
+                            <th>Sacharidy</th>
+                            <th>Bilkoviny</th>
+                            <th>Tuky</th>
                         </tr>
-                    ))}
-                </table>
+                        {ulozenePotraviny.map((ulozenaPotravina) => (
+                            <tr>
+                                <td>{ulozenaPotravina.Nazev}</td>
+                                <td>{ulozenaPotravina.Kcal}kcal</td>
+                                <td>{ulozenaPotravina.Sacharidy}g</td>
+                                <td>{ulozenaPotravina.Bilkoviny}g</td>
+                                <td>{ulozenaPotravina.Tuky}g</td>
+                            </tr>
+                        ))}
+                    </table>
+                </div>
 
 
             </div>
@@ -393,7 +429,6 @@ function App() {
                     </tr>
                 ))}
             </table>
-
         </div>
     );
 
