@@ -31,11 +31,9 @@ import {Modal} from "./Modal";
 
 function App() {
 
-
     const [potraviny, setPotraviny] = useState([])
     const [filterName, setFilterName] = useState(0);
     const [loaded, setLoaded] = useState(false);
-    const [ulozenePotraviny, setUlozenePotraviny] = useState([])
 
     const getPotravina = async (id) => {
         const res = await fetch(`http://localhost:3030/` + id, {
@@ -50,9 +48,12 @@ function App() {
         setLoaded(true)
     };
 
+
+
     useEffect(() => {
         if (!loaded) {
             getPotravina("")
+
         }
 
         let progressBar = document.querySelector(".circular-progress");
@@ -135,7 +136,6 @@ function App() {
         }, speed3);
     })
 
-
     const [number1, setNumber1] = useState(0);
     const [number2, setNumber2] = useState(0);
     const [number3, setNumber3] = useState(0);
@@ -150,6 +150,66 @@ function App() {
         tukTotal(number2 * 0.75)
         sachTotal(number2 * 3.2)
     }
+
+    const [ulozenePotraviny, setUlozenePotraviny] = useState([])
+    function vlozPotravinu(potravina) {
+        let data = getPotravina('')
+        ulozenePotraviny.push({
+            Nazev: potravina.Nazev,
+            Kcal: potravina.Kcal,
+            Sacharidy: potravina.Sacharidy,
+            Bilkoviny: potravina.Bilkoviny,
+            Tuky: potravina.Tuky});
+        console.log(ulozenePotraviny)
+        setUlozenePotraviny(ulozenePotraviny)
+        kcalSummaryPotraviny(ulozenePotraviny)
+        sachSummaryPotraviny(ulozenePotraviny)
+        bilkSummaryPotraviny(ulozenePotraviny)
+        tukSummaryPotraviny(ulozenePotraviny)
+    }
+
+    const [kcalCelekm, setKcalCelekm] = useState(0)
+
+    function kcalSummaryPotraviny(potraviny) {
+        let summary = 0
+        for (let i = 0; i < potraviny.length; i++) {
+            summary += potraviny[i].Kcal
+        }
+        setKcalCelekm(summary)
+        console.log(kcalCelekm)
+    }
+    const [sachCelekm, setSachCelekm] = useState(0)
+
+    function sachSummaryPotraviny(potraviny) {
+        let summary = 0
+        for (let i = 0; i < potraviny.length; i++) {
+            summary += potraviny[i].Sacharidy
+        }
+        setSachCelekm(summary)
+        console.log(sachCelekm)
+    }
+    const [bilkCelekm, setBilkCelekm] = useState(0)
+
+    function bilkSummaryPotraviny(potraviny) {
+        let summary = 0
+        for (let i = 0; i < potraviny.length; i++) {
+            summary += potraviny[i].Bilkoviny
+        }
+        setBilkCelekm(summary)
+        console.log(bilkCelekm)
+    }
+    const [tukCelekm, setTukCelekm] = useState(0)
+
+    function tukSummaryPotraviny(potraviny) {
+        let summary = 0
+        for (let i = 0; i < potraviny.length; i++) {
+            summary += potraviny[i].Tuky
+        }
+        setTukCelekm(summary)
+        console.log(tukCelekm)
+    }
+
+
 
     if (!loaded) {
         return (
@@ -168,7 +228,7 @@ function App() {
             <div className="graf1">
                 <div id="Honza" className="circular-progress">
                     <div id="Honza2" className="value-container">0%</div>
-                    <div className="text2">1500kcal</div>
+                    <div className="text2">{kcalCelekm}kcal</div>
                 </div>
 
                 <div className="text">Celkem kcal</div>
@@ -331,31 +391,25 @@ function App() {
                         <table>
                             {/*{setChangedPotraviny(potraviny.filter(potravina => potravina.Name.includes(document.querySelector(".hledacipanel").value.toString())))}*/}
                             {potraviny.result.filter(potravina => potravina.Nazev.includes(filterName)).map((potravina) => (
-                                <button onClick={() => {
-                                    ulozenePotraviny.push({
-                                        Nazev: potravina.Nazev,
-                                        Kcal: potravina.Kcal,
-                                        Sacharidy: potravina.Sacharidy,
-                                        Bilkoviny: potravina.Bilkoviny,
-                                        Tuky: potravina.Tuky});
-                                }}>
+                                <tr>
                                     <td>{potravina.Nazev}</td>
                                     <td>{potravina.Kcal}kcal</td>
                                     <td>Sach. {potravina.Sacharidy}g</td>
                                     <td>Blik. {potravina.Bilkoviny}g</td>
                                     <td>Tuky {potravina.Tuky}g</td>
-                                </button>
+                                    <td>
+                                        <button  onClick={(e) => {
+                                            vlozPotravinu(potravina)
+                                            e.preventDefault()
+                                        }}>Pridat</button>
+                                    </td>
+                                </tr>
                             ))}
                         </table>
                     </div>
                 </form>
+
                 <div className="vybranePotraviny">
-                    <button onClick={() => {
-                        ulozenePotraviny.push({
-                            Nazev: "karel",
-                            Kcal: 19
-                        });
-                    }}>Add</button>
                     <table>
                         <tr>
                             <th>Nazev</th>
@@ -363,6 +417,7 @@ function App() {
                             <th>Sacharidy</th>
                             <th>Bilkoviny</th>
                             <th>Tuky</th>
+                            <th>Hmotnost</th>
                         </tr>
                         {ulozenePotraviny.map((ulozenaPotravina) => (
                             <tr>
@@ -371,6 +426,7 @@ function App() {
                                 <td>{ulozenaPotravina.Sacharidy}g</td>
                                 <td>{ulozenaPotravina.Bilkoviny}g</td>
                                 <td>{ulozenaPotravina.Tuky}g</td>
+                                <td> <input placeholder="1"/> * 100g</td>
                             </tr>
                         ))}
                     </table>
@@ -409,26 +465,10 @@ function App() {
                     </div>
                 </div>
             </div>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nazev</th>
-                    <th>Kcal</th>
-                    <th>Sacharidy</th>
-                    <th>Bilkoviny</th>
-                    <th>Tuky</th>
-                </tr>
-                {potraviny.result.map((potravina) => (
-                    <tr>
-                        <td>{potravina.ID}</td>
-                        <td>{potravina.Nazev}</td>
-                        <td>{potravina.Kcal}</td>
-                        <td>{potravina.Sacharidy}</td>
-                        <td>{potravina.Bilkoviny}</td>
-                        <td>{potravina.Tuky}</td>
-                    </tr>
-                ))}
-            </table>
+            <h1>{kcalCelekm}</h1>
+            <h1>{sachCelekm}</h1>
+            <h1>{bilkCelekm}</h1>
+            <h1>{tukCelekm}</h1>
         </div>
     );
 
