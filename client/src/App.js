@@ -56,16 +56,21 @@ function App() {
 
         }
 
+        let procento = Math.round((kcalCelekm*100)/(total));
+
         let progressBar = document.querySelector(".circular-progress");
-
         let valueContainer = document.querySelector(".value-container");
+        let progressValue = -1 ;
+        let progressEndValue = procento;
+        if (kcalCelekm, total > 0) {
+            progressEndValue = Math.round((kcalCelekm*100)/(total));
+        } else {
+            progressEndValue = 0;
+        }
 
-
-        let progressValue = 0;
-        let progressEndValue = 100;
         let speed = 10;
-
         let progress = setInterval(() => {
+
             progressValue++;
             // console.log(valueContainer)
             valueContainer.innerHTML = `${progressValue}` + "%";
@@ -77,12 +82,21 @@ function App() {
                 clearInterval(progress);
             }
         }, speed);
+
+
+
         let progressBar1 = document.querySelector(".circular-progress1");
         let valueContainer1 = document.querySelector(".value-container1");
 
-        let progressValue1 = 0;
-        let progressEndValue1 = 80;
+        let procento1 = Math.round((bilkCelekm*100)/(bilk));
+        let progressValue1 = -1;
         let speed1 = 10;
+        let progressEndValue1 = procento1;
+        if (bilkCelekm, bilk > 0) {
+            progressEndValue1 = Math.round((bilkCelekm*100)/(bilk));
+        } else {
+            progressEndValue1 = 0;
+        }
 
         let progress1 = setInterval(() => {
             progressValue1++;
@@ -100,9 +114,14 @@ function App() {
         let progressBar2 = document.querySelector(".circular-progress2");
         let valueContainer2 = document.querySelector(".value-container2");
 
-        let progressValue2 = 0;
+        let progressValue2 = -1;
         let progressEndValue2 = 90;
         let speed2 = 10;
+        if (sachCelekm, sach > 0) {
+            progressEndValue2 = Math.round((sachCelekm*100)/(sach));
+        } else {
+            progressEndValue2 = 0;
+        }
 
         let progress2 = setInterval(() => {
             progressValue2++;
@@ -119,9 +138,14 @@ function App() {
         let progressBar3 = document.querySelector(".circular-progress3");
         let valueContainer3 = document.querySelector(".value-container3");
 
-        let progressValue3 = 0;
+        let progressValue3 = -1;
         let progressEndValue3 = 30;
         let speed3 = 10;
+        if (tukCelekm, tuk > 0) {
+            progressEndValue3 = Math.round((tukCelekm*100)/(tuk));
+        } else {
+            progressEndValue3 = 0;
+        }
 
         let progress3 = setInterval(() => {
             progressValue3++;
@@ -145,10 +169,10 @@ function App() {
     const [sach, sachTotal] = useState(number1 + number2 + number3)
 
     function addThem() {
-        setTotal(66 + (14 * number2) + (5 * number1) - (7 * number3));
-        bilkTotal(number2 * 1.64)
-        tukTotal(number2 * 0.75)
-        sachTotal(number2 * 3.2)
+        setTotal ( Math.round (66 + (14 * number2) + (5 * number1) - (7 * number3)));
+        bilkTotal( Math.round (number2 * 1.64))
+        tukTotal( Math.round (number2 * 0.75))
+        sachTotal( Math.round (number2 * 3.2))
     }
 
     const [ulozenePotraviny, setUlozenePotraviny] = useState([])
@@ -236,7 +260,7 @@ function App() {
             <div className="graf2">
                 <div className="circular-progress1">
                     <div className="value-container1">0%</div>
-                    <div className="text2">120g</div>
+                    <div className="text2">{bilkCelekm}g</div>
                 </div>
 
                 <div className="text">Bílkoviny</div>
@@ -245,7 +269,7 @@ function App() {
             <div className="graf3">
                 <div className="circular-progress2">
                     <div className="value-container2">0%</div>
-                    <div className="text2">48g</div>
+                    <div className="text2">{sachCelekm}g</div>
                 </div>
 
                 <div className="text">Sacharidy</div>
@@ -254,7 +278,7 @@ function App() {
             <div className="graf4">
                 <div className="circular-progress3">
                     <div className="value-container3">0%</div>
-                    <div className="text2">6g</div>
+                    <div className="text2">{tukCelekm}g</div>
                 </div>
 
                 <div className="text">Tuky</div>
