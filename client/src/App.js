@@ -161,6 +161,7 @@ function App() {
     })
 
     const [number1, setNumber1] = useState(0);
+    const [number5, setNumber5] = useState(0);
     const [number2, setNumber2] = useState(0);
     const [number3, setNumber3] = useState(0);
     const [total, setTotal] = useState(number1 + number2 + number3)
@@ -174,6 +175,11 @@ function App() {
         tukTotal( Math.round (number2 * 0.75))
         sachTotal( Math.round (number2 * 3.2))
     }
+
+    if (number1, number2, number3 <= 0) {
+        addThem = 0;
+    }
+
 
     const [ulozenePotraviny, setUlozenePotraviny] = useState([])
     function vlozPotravinu(potravina) {
@@ -247,6 +253,7 @@ function App() {
 
 
         <div className="App">
+            <div className="sediva"></div>
 
 
             <div className="graf1">
@@ -450,7 +457,8 @@ function App() {
                                 <td>{ulozenaPotravina.Sacharidy}g</td>
                                 <td>{ulozenaPotravina.Bilkoviny}g</td>
                                 <td>{ulozenaPotravina.Tuky}g</td>
-                                <td> <input placeholder="1"/> * 100g</td>
+                                <td>  100g</td>
+                                <td><button>Odstranit</button></td>
                             </tr>
                         ))}
                     </table>
@@ -459,40 +467,8 @@ function App() {
 
             </div>
 
-            <div className="button2">
-                <div className="facebok">
-                    <div className="icon">
-                        <FontAwesomeIcon icon={faFacebookF} className="Applogo"/>
-                    </div>
 
-                </div>
-            </div>
-            <div className="button1">
-                <div className="twitter">
-                    <div className="icon">
-                        <FontAwesomeIcon icon={faTwitter} className="Applogo"/>
-                    </div>
 
-                </div>
-            </div>
-            <div className="button1">
-                <div className="instagram">
-                    <div className="icon">
-                        <FontAwesomeIcon icon={faInstagram} className="Applogo"/>
-                    </div>
-                </div>
-            </div>
-            <div className="button1">
-                <div className="git">
-                    <div className="icon">
-                        <FontAwesomeIcon icon={faGithub} className="Applogo"/>
-                    </div>
-                </div>
-            </div>
-            <h1>{kcalCelekm}</h1>
-            <h1>{sachCelekm}</h1>
-            <h1>{bilkCelekm}</h1>
-            <h1>{tukCelekm}</h1>
         </div>
     );
 
