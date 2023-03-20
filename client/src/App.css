@@ -771,7 +771,134 @@ rgba(0,0,0,0.02);
 .mojetlacitko:focus-within > div > table > tr:nth-child(3) {
   background-color: #f6f6f6;
 }
-@media only screen and (max-width: 700px) {
+
+
+@media only screen and (max-width: 1000px ) and (min-width:801px) {
+  .sediva{
+    background-color:  #f5f6fa;
+    position: absolute;
+    right: 0;
+    width:70%;
+    height: 140%;
+
+  }
+  .tabulka {
+    top: 140%;
+    left: 0;
+    width: 100%;
+  }
+.nabidka{
+  width: 30%;
+}
+  .kcalkalkul{
+    top: 8%;
+    font-size: 80%;
+    left: 11%;
+  }
+  .pc5{
+    width: 8%;
+  }
+  .novejcil{
+    left: 3.5%;
+    width: 23%;
+    font-size: 80%;
+  }
+  .graf1{
+    top: 54%;
+    left: 33%;
+    width: 30%;
+    font-size: 80%;
+  }
+  .graf2{
+    top: 54%;
+    left: 67%;
+    width: 30%;
+    font-size: 80%;
+  }
+  .graf3{
+    top: 97%;
+    width: 30%;
+    font-size: 80%;
+    left: 33%;
+  }
+  .graf4{
+    top: 97%;
+    width: 30%;
+    font-size: 80%;
+    left: 67%;
+  }
+
+  .kcal{
+    top: 8%;
+    left: 33%;
+    width: 30%;
+    font-size: 80%;
+
+  }
+  .kcal1{
+    width: 50%;
+    height: 50%;
+  }
+  .sach1{
+    width: 50%;
+    height: 50%;
+  }
+  .tuk1{
+    width: 50%;
+    height: 50%;
+  }
+  .bilk1{
+    width: 50%;
+    height: 50%;
+  }
+  .bilk{
+    top: 8%;
+    width: 30%;
+    left: 67%;
+    font-size: 80%;
+  }
+  .tuk{
+    top: 31%;
+    width: 30%;
+    left: 67%;
+    font-size: 80%;
+  }
+  .sach{
+    top: 31%;
+    left: 33%;
+    width: 30%;
+    font-size: 80%;
+  }
+  .input1 {
+    left: 4%;
+    top: 60%;
+    width: 20%;
+  }
+  .input2 {
+    top: 85%;
+    width: 20%;
+    left: 4%;
+  }
+  .input3 {
+    top: 110% ;
+    width: 20%;
+    left: 4%;
+  }
+  .p1 {
+    left: 7%;
+    top: 45%;
+
+  }
+  .p2 {
+    left: 8%;
+    top: 70%;
+  }
+  .p3 {
+    left: 8%;
+    top: 95%;
+  }
+}
+@media only screen and (max-width: 800px) {
 .graf1{
   position: absolute;
   left: 40%;
@@ -1057,8 +1184,275 @@ top: 199%;
 
   }
 }
-@media only screen and (min-width: 900px) {
-  .circular-progress{
+@media only screen and (max-width: 1200px ) and (min-width:1001px) {
+  .sediva{
+    background-color:  #f5f6fa;
+    position: absolute;
+    right: 0;
+    width:70%;
+    height: 140%;
 
   }
+  .tabulka {
+    top: 140%;
+    left: 0;
+    width: 100%;
+  }
+  .nabidka{
+    width: 30%;
+  }
+  .kcalkalkul{
+    top: 8%;
+    font-size: 80%;
+    left: 11%;
+  }
+  .pc5{
+    width: 7%;
+  }
+  .novejcil{
+    left: 3.5%;
+    width: 23%;
+    font-size: 80%;
+  }
+  .graf1{
+    top: 54%;
+    left: 33%;
+    width: 30%;
+    font-size: 80%;
+  }
+  .graf2{
+    top: 54%;
+    left: 67%;
+    width: 30%;
+    font-size: 80%;
+  }
+  .graf3{
+    top: 97%;
+    width: 30%;
+    font-size: 80%;
+    left: 33%;
+  }
+  .graf4{
+    top: 97%;
+    width: 30%;
+    font-size: 80%;
+    left: 67%;
+  }
+
+  .kcal{
+    top: 8%;
+    left: 33%;
+    width: 30%;
+    font-size: 80%;
+
+  }
+  .kcal1{
+    width: 30%;
+    height: 50%;
+  }
+  .sach1{
+    width: 30%;
+    height: 50%;
+  }
+  .tuk1{
+    width: 30%;
+    height: 50%;
+  }
+  .bilk1{
+    width: 30%;
+    height: 50%;
+  }
+  .bilk{
+    top: 8%;
+    width: 30%;
+    left: 67%;
+    font-size: 80%;
+  }
+  .tuk{
+    top: 31%;
+    width: 30%;
+    left: 67%;
+    font-size: 80%;
+  }
+  .sach{
+    top: 31%;
+    left: 33%;
+    width: 30%;
+    font-size: 80%;
+  }
+  .input1 {
+    left: 4%;
+    top: 60%;
+    width: 20%;
+  }
+  .input2 {
+    top: 85%;
+    width: 20%;
+    left: 4%;
+  }
+  .input3 {
+    top: 110% ;
+    width: 20%;
+    left: 4%;
+  }
+  .p1 {
+    left: 9%;
+    top: 45%;
+
+  }
+  .p2 {
+    left: 10%;
+    top: 70%;
+  }
+  .p3 {
+    left: 10%;
+    top: 95%;
+  }
+}
+@media only screen and (max-width: 1400px ) and (min-width:1201px) {
+.kcal{
+  top: 7%;
+  left: 23%;
+  height: 15%;
+  font-size: 80%;
+  width: 18%;
+
+}
+  .kcal1{
+    width: 50%;
+    height: 55%;
+  }
+  .sach1{
+    width: 50%;
+    height: 55%;
+  }
+  .bilk1{
+    width: 50%;
+    height: 55%;
+  }
+  .tuk1{
+    width: 50%;
+    height: 55%;
+  }
+  .bilk{
+    top: 7%;
+    left: 42%;
+    height: 15%;
+    font-size: 80%;
+    width: 18%;
+  }
+  .sach{
+    top: 7%;
+    left: 61%;
+    height: 15%;
+    font-size: 80%;
+    width: 18%;
+  }
+  .tuk{
+    top: 7%;
+    left: 80%;
+    height: 15%;
+    font-size: 80%;
+    width: 18%;
+  }
+  .graf1{
+    top: 24%;
+    width: 18%;
+    left: 23%;
+    height: 35%;
+    font-size: 80%;
+  }
+  .graf2{
+    top: 24%;
+    width: 18%;
+    left: 42%;
+    height: 35%;
+    font-size: 80%;
+  }
+  .graf3{
+    top: 24%;
+    width: 18%;
+    left: 61%;
+    height: 35%;
+    font-size: 80%;
+  }
+  .graf4{
+    top: 24%;
+    width: 18%;
+    left: 80%;
+    height: 35%;
+    font-size: 80%;
+  }
+  .nabidka{
+    width: 20%;
+  }
+  .novejcil{
+    width: 15%;
+    left: 2.5%;
+    font-size: 80%;
+  }
+  .p1 {
+    left: 5.5%;
+    top: 35%;
+
+  }
+  .p2 {
+    left: 6%;
+    top: 50%;
+  }
+  .p3 {
+    left: 6%;
+    top: 65%;
+  }
+  .input1{
+    width: 15%;
+    left: 2.5%;
+    top: 45%;
+  }
+  .input2{
+    width: 15%;
+    left: 2.5%;
+    top: 60%;
+  }
+  .input3{
+    width: 15%;
+    left: 2.5%;
+    top: 75%;
+  }
+  .pc5{
+    width: 5%;
+    height: 6%;
+    left: 1%;
+  }
+  .kcalkalkul{
+    left: 7%;
+    top: 7.5%;
+    font-size: 80%;
+  }
+  .circular-progress {
+    height: 185px;
+    width: 185px;
+  }
+  .circular-progress1 {
+    height: 185px;
+    width: 185px;
+  }
+  .circular-progress2 {
+    height: 185px;
+    width: 185px;
+  }
+  .circular-progress3 {
+    height: 185px;
+    width: 185px;
+  }
+  .tabulka{
+    top: 61%;
+    width: 75%;
+    left: 23%;
+    height: 38%;
+  }
+}
+@media only screen and (max-width: 1600px ) and (min-width:1401px) {
+
+
 }
