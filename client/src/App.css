@@ -635,13 +635,7 @@ left: 20%;
 
 }
 
-.pic10{
-  position: fixed;
-  left: 87%;
-  top: 10%;
-  height: 20%;
 
-}
 
 .text10{
   position: absolute;
@@ -771,6 +765,34 @@ rgba(0,0,0,0.02);
 .mojetlacitko:focus-within > div > table > tr:nth-child(3) {
   background-color: #f6f6f6;
 }
+.pop{
+ left: 40%;
+  position: absolute;
+  top: 35%;
+
+  font-size: 250%;
+  font-family: "Gill Sans", sans-serif;
+  color: #cadcff;
+
+}
+.pop1{
+  left: 20%;
+  position: absolute;
+  top: 35%;
+
+  font-size: 250%;
+  font-family: "Gill Sans", sans-serif;
+  color: #cadcff;
+
+}
+.pic10{
+  position: absolute;
+  top: 35%;
+
+  left:  80%;
+  height: 30%;
+
+}
 
 
 @media only screen and (max-width: 1000px ) and (min-width:801px) {
@@ -782,6 +804,20 @@ rgba(0,0,0,0.02);
     height: 140%;
 
   }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 150%;
+    left: 25%;
+    top: 40%;
+  }
+  .pop1{
+    font-size: 150%;
+    left: 5%;
+    top: 42%;
+  }
+
   .tabulka {
     top: 140%;
     left: 0;
@@ -906,6 +942,19 @@ rgba(0,0,0,0.02);
   width: 55%;
 
 }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 200%;
+    left: 25%;
+    top: 40%;
+  }
+  .pop1{
+    font-size: 200%;
+    left: 10%;
+    top: 42%;
+  }
   .graf2{
     position: absolute;
     left: 40%;
@@ -1048,6 +1097,19 @@ top: 70%;
     font-size: 10px;
     width: 100%;
     text-align: left;
+  }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 150%;
+    left: 25%;
+    top: 42%;
+  }
+  .pop1{
+    font-size: 150%;
+    left: 5%;
+    top: 43%;
   }
   .mojetlacitko:focus-within > div > table > tr {
     pointer-events: all;
@@ -1193,6 +1255,19 @@ top: 199%;
     height: 140%;
 
   }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 150%;
+    left: 30%;
+    top: 40%;
+  }
+  .pop1{
+    font-size: 150%;
+    left: 10%;
+    top: 42%;
+  }
   .tabulka {
     top: 140%;
     left: 0;
@@ -1318,6 +1393,19 @@ top: 199%;
   width: 18%;
 
 }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 150%;
+    left: 25%;
+    top: 39%;
+  }
+  .pop1{
+    font-size: 150%;
+    left: 5%;
+    top: 40%;
+  }
   .kcal1{
     width: 50%;
     height: 55%;
@@ -1456,6 +1544,19 @@ top: 199%;
   .circular-progress3 {
     height: 200px;
     width: 200px;
+  }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 150%;
+    left: 25%;
+    top: 40%;
+  }
+  .pop1{
+    font-size: 150%;
+    left: 16%;
+    top: 42%;
   }
   .circular-progress2 {
     height: 200px;
@@ -1651,6 +1752,19 @@ top: 199%;
     top: 35%;
 
   }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 180%;
+    left: 25%;
+    top: 38%;
+  }
+  .pop1{
+    font-size: 180%;
+    left: 15%;
+    top: 40%;
+  }
   .p2 {
     left: 5%;
     top: 50%;
@@ -1716,6 +1830,19 @@ top: 199%;
     top: 35%;
 
   }
+  .pic10{
+    left: 70%;
+  }
+  .pop{
+    font-size: 180%;
+    left: 25%;
+    top: 36%;
+  }
+  .pop1{
+    font-size: 180%;
+    left: 15%;
+    top: 38%;
+  }
   .p2 {
     left: 5%;
     top: 50%;
@@ -1753,5 +1880,6 @@ top: 199%;
     height: 106%;
 
   }
+
 
 }

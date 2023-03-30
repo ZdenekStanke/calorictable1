@@ -312,12 +312,7 @@ function App() {
                     <div className="flip-card-back">
 
                         <img className="pic10" src={pc1}/>
-                        <p className="textvaha">kcal</p>
-
-                        <p className="text10">zde si mužeš nastavit vlastni hodnotu kcal</p>
-
-                        <input className="input5" type="number" placeholder={setTotal} value={total}
-                               onChange={e => setTotal(+e.target.value)}/>
+                        <div className="pop1">{kcalCelekm}kcal</div>
 
                     </div>
 
@@ -336,12 +331,9 @@ function App() {
                         </div>
                     </div>
                     <div className="flip-card-back">
-                        <p className="text6">průměr bilkovin</p>
-                        <img className="pic10" src={pc2}/>
-                        <input className="input5" type="number" placeholder={bilkTotal} value={bilk}
-                               onChange={e => bilkTotal(+e.target.value)}/>
 
-                        <p className="textvaha">g</p>
+                        <img className="pic10" src={pc2}/>
+                        <div className="pop">{bilkCelekm}g</div>
 
 
                     </div>
@@ -362,9 +354,7 @@ function App() {
                     </div>
                     <div className="flip-card-back">
                         <img className="pic10" src={pc3}/>
-                        <p className="text6">průměr sacharidů</p>
-                        <input className="input5" type="number" placeholder={sachTotal} value={sach}
-                               onChange={e => sachTotal(+e.target.value)}/>
+                        <div className="pop">{sachCelekm}g</div>
 
                     </div>
 
@@ -385,9 +375,7 @@ function App() {
                     </div>
                     <div className="flip-card-back">
                         <img className="pic10" src={pc4}/>
-                        <p className="text6">průměr tuků</p>
-                        <input className="input5" type="number" placeholder={tukTotal} value={tuk}
-                               onChange={e => tukTotal(+e.target.value)}/>
+                        <div className="pop">{tukCelekm}g</div>
 
                     </div>
                 </div>
@@ -458,7 +446,7 @@ function App() {
                                 <td>{ulozenaPotravina.Bilkoviny}g</td>
                                 <td>{ulozenaPotravina.Tuky}g</td>
                                 <td>  100g</td>
-                                <td><button>Odstranit</button></td>
+
                             </tr>
                         ))}
                     </table>
