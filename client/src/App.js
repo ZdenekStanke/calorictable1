@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
-import pc1 from './icons8-gas-52.png';
-import pc2 from './icons8-thanksgiving-100.png';
-import pc4 from './icons8-hamburger-96.png';
-import pc3 from './icons8-whole-apple-96.png';
-import pc5 from './icons8-apple-96.png';
+import pc1 from './kcal.png';
+import pc2 from './bilkoviny.png';
+import pc4 from './tuky.png';
+import pc3 from './sacharidy.png';
+import pc5 from './logokcal.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import ReactDOM from 'react-dom'
 import {faCoffee} from '@fortawesome/free-solid-svg-icons'
